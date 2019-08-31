@@ -3,10 +3,60 @@
 
 #include "pch.h"
 #include <iostream>
+#include "base/util/string_util.h"
+#include <string>
+#include <assert.h>
+#include <locale>
+#include <iostream>
+#include <clocale>
+#include <cstdlib>
+#include "base/thread/thread.h"
+using namespace std;
+
+class myThread:public nbase::Thread
+{
+public:
+	virtual void Run() override
+	{
+
+	}
+
+};
+
+#include <thread>
+std::thread s;
 
 int main()
 {
-    std::cout << "Hello World!\n"; 
+	{
+
+	}
+	//test_case
+	{
+		std::string u8str = u8"hello你好啊";
+		std::wstring wstr = L"hello你好啊";
+		auto wresult=base::UTF8ToUTF16(u8str);
+		assert(wresult == wstr);
+	}
+	{
+		std::string str = "你好";
+		auto strRe = base::WStringToString(L"你好", 3);
+		assert(str == strRe);
+	}
+	{
+		std::setlocale(LC_ALL, "");
+		std::string str = u8"hello你好啊";
+		//若 dst 是空指针，则此函数返回假设转换则会写入 dst 的字节数
+		size_t nDestSize = mbstowcs(NULL, str.data(), 0) + 1;
+		wchar_t* wchDest = new wchar_t[nDestSize];
+		mbstowcs(wchDest, str.data(), nDestSize);
+		std::wstring wstrResult = wchDest;
+		delete wchDest;
+		std::wstring wstr = L"hello你好啊";
+		assert(wstr == wstrResult);
+		//return wstrResult;
+	}
+	return 1;
 }
 
 // 运行程序: Ctrl + F5 或调试 >“开始执行(不调试)”菜单

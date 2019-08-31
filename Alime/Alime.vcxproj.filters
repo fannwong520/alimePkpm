@@ -18,12 +18,63 @@
     <ClInclude Include="pch.h">
       <Filter>头文件</Filter>
     </ClInclude>
+    <ClInclude Include="base\build\build_config.h">
+      <Filter>头文件</Filter>
+    </ClInclude>
+    <ClInclude Include="base\build\windows_config.h">
+      <Filter>头文件</Filter>
+    </ClInclude>
+    <ClInclude Include="base\base_config.h">
+      <Filter>头文件</Filter>
+    </ClInclude>
+    <ClInclude Include="base\base_types.h">
+      <Filter>头文件</Filter>
+    </ClInclude>
+    <ClInclude Include="base\base_export.h">
+      <Filter>头文件</Filter>
+    </ClInclude>
+    <ClInclude Include="base\base.h">
+      <Filter>头文件</Filter>
+    </ClInclude>
+    <ClInclude Include="base\macros.h">
+      <Filter>头文件</Filter>
+    </ClInclude>
+    <ClInclude Include="base\port.h">
+      <Filter>头文件</Filter>
+    </ClInclude>
+    <ClInclude Include="base\error.h">
+      <Filter>头文件</Filter>
+    </ClInclude>
+    <ClInclude Include="base\util\string_util.h">
+      <Filter>头文件</Filter>
+    </ClInclude>
+    <ClInclude Include="base\util\unicode.h">
+      <Filter>头文件</Filter>
+    </ClInclude>
+    <ClInclude Include="base\build\windows_port.h">
+      <Filter>头文件</Filter>
+    </ClInclude>
+    <ClInclude Include="base\thread\thread.h">
+      <Filter>头文件</Filter>
+    </ClInclude>
+    <ClInclude Include="base\third_party\convert_utf\ConvertUTF.h">
+      <Filter>头文件</Filter>
+    </ClInclude>
   </ItemGroup>
   <ItemGroup>
     <ClCompile Include="pch.cpp">
       <Filter>源文件</Filter>
     </ClCompile>
     <ClCompile Include="Alime.cpp">
+      <Filter>源文件</Filter>
+    </ClCompile>
+    <ClCompile Include="base\util\string_util.cpp">
+      <Filter>源文件</Filter>
+    </ClCompile>
+    <ClCompile Include="base\thread\thread.cpp">
+      <Filter>源文件</Filter>
+    </ClCompile>
+    <ClCompile Include="base\third_party\convert_utf\ConvertUTF.c">
       <Filter>源文件</Filter>
     </ClCompile>
   </ItemGroup>
