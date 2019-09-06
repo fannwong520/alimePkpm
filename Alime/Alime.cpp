@@ -12,25 +12,28 @@
 #include <cstdlib>
 #include "base/thread/thread.h"
 using namespace std;
-
-class myThread:public nbase::Thread
-{
-public:
-	virtual void Run() override
-	{
-
-	}
-
-};
-
 #include <thread>
 std::thread s;
 
+
+class myThread :public nbase::Thread
+{
+public:
+	void Run()
+	{
+		while(1)
+			std::cout << "hello";
+	}
+};
 int main()
 {
 	{
-
+		myThread t;
+		t.Create();
+		Sleep(2000);
+		t.Terminate();
 	}
+	std::cout << "hello";
 	//test_case
 	{
 		std::string u8str = u8"hello你好啊";
