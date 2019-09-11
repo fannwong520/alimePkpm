@@ -8,6 +8,12 @@
 #include <string>
 #include "base_types.h"
 
+template <typename T>
+void UCANNOTSEEIT(const T &t)
+{
+
+}
+
 // check the pointer is null and return null
 #define PTR_NULL(p)				{ assert(p); if (NULL == p) return NULL; }
 // check the pointer is null and return void

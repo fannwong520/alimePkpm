@@ -5,42 +5,77 @@
 #include <iostream>
 #include "windows.h"
 #include <process.h>
-#include "thread.h"
+#include "Runnable.h"
 
 template <typename T, size_t N>
 char(&ArraySizeHelper(T(&array)[N]))[N];
 
 #define arraysize(array) (sizeof(ArraySizeHelper(array)))
 
-class myThread : public Thread
-{
-public:
-	virtual ~myThread() {
 
-	}
-	void run()
+#include <thread>
+#include "stdThread.h"
+class task :public Runnable
+{
+	virtual void run()
 	{
-		while (true)
-			std::cout << "Hello World!\n";
+		while(1)
+			std::cout << "to do something";
+	}
+};
+class task2 :public Runnable
+{
+	virtual void run()
+	{
+		while (1)
+			std::cout << "fuck";
 	}
 };
 
 #include <thread>
+
+
+class A
+{
+public:
+	int z= 3;
+	void print(int x, int y)
+	{
+		std::cout << x + y + z << std::endl;
+	}
+};
 int main()
 {
 	{
-		myThread t;
-		t.start();
+		A *a = new A();
+		std::thread t([a]() {
+			Sleep(100);
+			a->print(3, 4);
+			});
+		delete a;
+		a = nullptr;
 		Sleep(2000);
+		t.detach();
+
+	}
+	{
+		//std::thread t([]() {
+		//	while (1)
+		//		std::cout << "helloWorld";
+		//});
+		//t.detach();
 	}
 	std::cout << "Hello World!\n";
 	{
-		//A a;
-		//auto b = implicit_cast<B*, A*>(&a);
+		//Runnable* ta = new task();
+		//alime::StdThread tr(ta);
+		//tr.detach();
 	}
+	std::cout << "Hello World!\n";
 	{
 		int A_array[64];
 		constexpr size_t size=arraysize(A_array);
+		getchar();
 	}
 }
 

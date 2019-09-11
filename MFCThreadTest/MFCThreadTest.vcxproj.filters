@@ -15,84 +15,76 @@
     </Filter>
   </ItemGroup>
   <ItemGroup>
-    <ClInclude Include="pch.h">
+    <ClInclude Include="MFCThreadTest.h">
       <Filter>头文件</Filter>
     </ClInclude>
-    <ClInclude Include="base\build\build_config.h">
+    <ClInclude Include="stdafx.h">
       <Filter>头文件</Filter>
     </ClInclude>
-    <ClInclude Include="base\build\windows_config.h">
+    <ClInclude Include="targetver.h">
       <Filter>头文件</Filter>
     </ClInclude>
-    <ClInclude Include="base\base_config.h">
+    <ClInclude Include="MainFrm.h">
       <Filter>头文件</Filter>
     </ClInclude>
-    <ClInclude Include="base\base_types.h">
+    <ClInclude Include="MFCThreadTestDoc.h">
       <Filter>头文件</Filter>
     </ClInclude>
-    <ClInclude Include="base\base_export.h">
+    <ClInclude Include="MFCThreadTestView.h">
       <Filter>头文件</Filter>
     </ClInclude>
-    <ClInclude Include="base\base.h">
+    <ClInclude Include="Resource.h">
       <Filter>头文件</Filter>
     </ClInclude>
-    <ClInclude Include="base\macros.h">
+    <ClInclude Include="DialogClass1.h">
       <Filter>头文件</Filter>
     </ClInclude>
-    <ClInclude Include="base\port.h">
-      <Filter>头文件</Filter>
-    </ClInclude>
-    <ClInclude Include="base\error.h">
-      <Filter>头文件</Filter>
-    </ClInclude>
-    <ClInclude Include="base\util\string_util.h">
-      <Filter>头文件</Filter>
-    </ClInclude>
-    <ClInclude Include="base\util\unicode.h">
-      <Filter>头文件</Filter>
-    </ClInclude>
-    <ClInclude Include="base\build\windows_port.h">
-      <Filter>头文件</Filter>
-    </ClInclude>
-    <ClInclude Include="base\third_party\convert_utf\ConvertUTF.h">
-      <Filter>头文件</Filter>
-    </ClInclude>
-    <ClInclude Include="base\thread\thread.h">
-      <Filter>头文件</Filter>
-    </ClInclude>
-    <ClInclude Include="base\duration.h">
-      <Filter>头文件</Filter>
-    </ClInclude>
-    <ClInclude Include="base\Timestamp.h">
-      <Filter>头文件</Filter>
-    </ClInclude>
-    <ClInclude Include="base\getTimeOfDay.h">
+    <ClInclude Include="DialogClass2.h">
       <Filter>头文件</Filter>
     </ClInclude>
   </ItemGroup>
   <ItemGroup>
-    <ClCompile Include="pch.cpp">
+    <ClCompile Include="MFCThreadTest.cpp">
       <Filter>源文件</Filter>
     </ClCompile>
-    <ClCompile Include="Alime.cpp">
+    <ClCompile Include="stdafx.cpp">
       <Filter>源文件</Filter>
     </ClCompile>
-    <ClCompile Include="base\util\string_util.cpp">
+    <ClCompile Include="MainFrm.cpp">
       <Filter>源文件</Filter>
     </ClCompile>
-    <ClCompile Include="base\third_party\convert_utf\ConvertUTF.c">
+    <ClCompile Include="MFCThreadTestDoc.cpp">
       <Filter>源文件</Filter>
     </ClCompile>
-    <ClCompile Include="base\thread\thread.cpp">
+    <ClCompile Include="MFCThreadTestView.cpp">
       <Filter>源文件</Filter>
     </ClCompile>
-    <ClCompile Include="base\TimeStamp.cpp">
+    <ClCompile Include="DialogClass1.cpp">
+      <Filter>源文件</Filter>
+    </ClCompile>
+    <ClCompile Include="DialogClass2.cpp">
       <Filter>源文件</Filter>
     </ClCompile>
   </ItemGroup>
   <ItemGroup>
-    <None Include="base\duration.cpp">
-      <Filter>头文件</Filter>
+    <ResourceCompile Include="MFCThreadTest.rc">
+      <Filter>资源文件</Filter>
+    </ResourceCompile>
+  </ItemGroup>
+  <ItemGroup>
+    <None Include="res\MFCThreadTest.rc2">
+      <Filter>资源文件</Filter>
     </None>
+  </ItemGroup>
+  <ItemGroup>
+    <Image Include="res\MFCThreadTestDoc.ico">
+      <Filter>资源文件</Filter>
+    </Image>
+    <Image Include="res\MFCThreadTest.ico">
+      <Filter>资源文件</Filter>
+    </Image>
+    <Image Include="res\Toolbar.bmp">
+      <Filter>资源文件</Filter>
+    </Image>
   </ItemGroup>
 </Project>

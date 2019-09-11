@@ -6,7 +6,6 @@
 #include "process.h"
 #include <string>
 #include <assert.h>
-#include <base/macros.h>
 
 namespace Alime
 {
@@ -35,7 +34,6 @@ namespace Alime
 			catch (const std::exception& ex)
 			{
 				//LOG_ERR<<ex
-				UCANNOTSEEIT(ex);
 				abort();
 			}
 		}
@@ -75,7 +73,7 @@ namespace Alime
 	thread::thread()
 	{
 		started = false;
-		Thr_set_null(_Thr);
+		_Thr_set_null(_Thr);
 	}
 
 	thread::thread(ThreadFunc func, bool startImmediately)
