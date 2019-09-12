@@ -13,26 +13,61 @@
 #include "base/thread/thread.h"
 using namespace std;
 #include <thread>
+#include "base/thread/thread.h"
 std::thread s;
 
-
-class myThread :public nbase::Thread
+class C
 {
 public:
-	void Run()
+	int x = 3;
+	int j=100;
+	void doSomething(int x, int y)
 	{
-		while(1)
-			std::cout << "hello";
+		Sleep(1000);
+		std::cout << std::dec<<x + y + j;
+	}
+	~C()
+	{
+		std::cout <<std::hex<<this<<std::endl;
 	}
 };
+
+
 int main()
 {
 	{
-		myThread t;
-		t.Create();
-		Sleep(2000);
-		t.Terminate();
+		Alime::thread t([]() {
+			std::cout << "hello" << std::endl;
+			});
+		
+		t.get_id();
+		auto bis=t.joinable();
+		t.detach();
+		bis = t.joinable();
 	}
+	getchar();
+	{
+		std::thread t([]() {
+			std::cout <<"hello"<< std::endl;
+			});
+	}
+	C* cpte = nullptr;
+	{
+		C c;
+		std::thread t([&c]() {
+			while(1)
+			c.doSomething(1,2);
+			});		
+		t.detach();
+		cpte = &c;
+	}
+	cpte->j = 300;
+	{
+		int ok = 3;
+		Sleep(4000);
+		getchar();
+	}
+
 	std::cout << "hello";
 	//test_case
 	{

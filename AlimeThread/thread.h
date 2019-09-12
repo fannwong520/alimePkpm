@@ -1,8 +1,5 @@
 #pragma once
 #include <functional>
-#include <assert.h>
-#include "base/Timestamp.h"
-#include "base/duration.h"
 /*
 按标准库接口实现
 方便以后过度到std::thread。
@@ -28,9 +25,9 @@ namespace Alime
 
 	typedef int(*_Thrd_start_t)(void *);
 
-#define Thr_val(thr) thr.tid
-#define Thr_set_null(thr) (thr.handle = nullptr, thr.tid = 0)
-#define Thr_is_null(thr) (thr.tid == 0)
+#define _Thr_val(thr) thr.tid
+#define _Thr_set_null(thr) (thr.handle = nullptr, thr.tid = 0)
+#define _Thr_is_null(thr) (thr.tid == 0)
 
 	typedef unsigned int(__stdcall *_Thrd_callback_t)(void *);
 
@@ -39,7 +36,6 @@ namespace Alime
 	public:
 		typedef void *native_handle_type;
 		typedef std::function<void()> ThreadFunc;
-		typedef unsigned int id;
 	public:
 		thread();
 		thread(ThreadFunc ,bool startImmediately=true);
@@ -61,34 +57,5 @@ namespace Alime
 		ThreadFunc func_;
 		bool started;
 	};
-
-
-
-	namespace this_thread 
-	{
-		inline thread::id get_id() noexcept
-		{
-			return GetCurrentThreadId();
-		}
-
-		inline void yield() noexcept
-		{	// give up balance of time slice
-			::Sleep(0);
-		}
-
-		inline void sleep_for(Duration t)
-		{	// sleep for duration
-			assert(t.Valid());
-			Sleep(t.kMillisecond);
-		}
-
-		inline void sleep_until(Timestamp t)
-		{	// sleep until _Abs_time
-			sleep_for(t - Timestamp::Now());
-		}
-
-
-
-	}	// namespace this_thread
 }
 

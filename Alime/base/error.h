@@ -24,7 +24,7 @@ namespace nbase
 	const RESULT     kResultTimeout = NBASE(6);
 
 
-	class BASE_EXPORT NException : public std::runtime_error
+	class BASE_EXPORT NException:public std::runtime_error
 	{
 	public:
 		NException(const std::string &e) : std::runtime_error(e), error_code_(nbase::kResultFailed) {}
