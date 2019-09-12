@@ -15,6 +15,7 @@
 #include <ctype.h>
 #include "base/macros.h"
 #include "base/third_party/convert_utf/ConvertUTF.h"
+#include <locale.h>
 
 namespace base
 {
@@ -334,7 +335,8 @@ namespace base
 
 	void StringAppendV(std::string &output, const char *format, va_list ap)
 	{
-		StringAppendVT<char>(format, ap, output);
+		//StringAppendVT<char>(format, ap, output);
+		StringAppendVT(format, ap, output);
 	}
 
 	void StringAppendV(std::wstring &output, const wchar_t *format, va_list ap)

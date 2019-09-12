@@ -74,6 +74,7 @@ namespace base
 	BASE_EXPORT std::basic_string<UTF32Char> UTF16ToUTF32(const std::wstring &utf16);
 	BASE_EXPORT std::wstring UTF32ToUTF16(const std::basic_string<UTF32Char> &utf32);
 	BASE_EXPORT std::string WStringToString(const wchar_t *wstr, size_t length);
+	BASE_EXPORT std::wstring StringToWString(const std::string& s);
 	/*
 	虽然没有unicode但我们很容易解决这个问题。
 	而对于ansi,则需要进行一次转换
